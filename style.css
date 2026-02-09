@@ -91,6 +91,7 @@ body {
 }
 
 /* PANEL 2 HIDDEN INITIALLY */
+/* PANEL 2 hidden initially */
 .panel-2 {
   position: absolute;
   top: 0;
@@ -109,6 +110,7 @@ body {
 .contract-card {
   width: 90%;
   max-width: 400px;
+  max-height: 90%; /* important for scrolling */
   background: #fff0f6;
   border: 4px solid #ff6fb5;
   border-radius: 16px;
@@ -118,29 +120,15 @@ body {
   font-family: 'Permanent Marker', cursive;
   color: #ff2f92;
   text-align: left;
+  overflow-y: auto; /* makes the card scrollable */
   animation: contractEnter 1s ease forwards;
-  overflow-y: auto;
 }
 
-/* Marker font */
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-
-/* Paper texture for contract */
-.contract-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    repeating-linear-gradient(
-      45deg,
-      rgba(255,255,255,0.15),
-      rgba(255,255,255,0.15) 2px,
-      transparent 2px,
-      transparent 6px
-    );
-  opacity: 0.3;
-  pointer-events: none;
-  border-radius: 16px;
+/* CONTRACT ENTRY ANIMATION */
+@keyframes contractEnter {
+  0% { transform: scale(0.6) rotate(-10deg); opacity: 0; }
+  60% { transform: scale(1.05) rotate(5deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
 }
 
 /* Contract text spacing */
@@ -165,35 +153,20 @@ body {
   font-weight: bold;
 }
 
-/* CONTRACT ENTRY ANIMATION */
-@keyframes contractEnter {
-  0% { transform: scale(0.6) rotate(-10deg); opacity: 0; }
-  60% { transform: scale(1.05) rotate(5deg); opacity: 1; }
-  100% { transform: scale(1) rotate(0deg); opacity: 1; }
-}
-
-
-/* Crumpled -> flattened animation */
-@keyframes crumpleIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.4) rotate(-12deg) skew(12deg, -8deg);
-    filter: blur(2px);
-    box-shadow: none;
-  }
-
-  40% {
-    opacity: 1;
-    transform: scale(0.9) rotate(6deg) skew(-6deg, 4deg);
-  }
-
-  70% {
-    transform: scale(1.05) rotate(-2deg) skew(2deg, -1deg);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1) rotate(0deg) skew(0deg, 0deg);
-    filter: blur(0);
-  }
+/* Paper texture for contract */
+.contract-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.15),
+      rgba(255,255,255,0.15) 2px,
+      transparent 2px,
+      transparent 6px
+    );
+  opacity: 0.3;
+  pointer-events: none;
+  border-radius: 16px;
 }
