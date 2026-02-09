@@ -17,7 +17,7 @@ body {
   justify-content: center;
 }
 
-/* Paper card */
+/* Scrapbook card with crumpled -> flattened animation */
 .scrapbook-card {
   position: relative;
   background: #fff0f6;
@@ -30,6 +30,7 @@ body {
   overflow: hidden;
 }
 
+/* Paper texture overlay */
 .scrapbook-card::before {
   content: "";
   position: absolute;
@@ -45,7 +46,6 @@ body {
   opacity: 0.3;
   pointer-events: none;
 }
-
 
 /* Washi tape */
 .tape {
@@ -67,7 +67,7 @@ body {
   transform: rotate(10deg);
 }
 
-/* Text */
+/* Text styling */
 .scrapbook-text {
   color: #ff2f92;
   font-size: 2.2rem;
@@ -81,7 +81,7 @@ body {
   margin-top: 10px;
 }
 
-/* Doodles */
+/* Doodle hearts */
 .doodle-hearts {
   margin-top: 20px;
   color: #ff6fb5;
@@ -90,7 +90,7 @@ body {
   letter-spacing: 10px;
 }
 
-/* Animation */
+/* Crumpled -> flattened animation */
 @keyframes crumpleIn {
   0% {
     opacity: 0;
@@ -114,4 +114,3 @@ body {
     filter: blur(0);
   }
 }
-
