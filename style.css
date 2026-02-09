@@ -24,11 +24,12 @@ body {
   padding: 50px 40px;
   border-radius: 16px;
   box-shadow: 0 12px 28px rgba(255, 47, 146, 0.3);
-  opacity: 0;
-  animation: crumpleIn 1.3s ease-out forwards;
+  opacity: 1; /* show immediately */
+  /* remove animation or keep if you define keyframes */
   transform-origin: center;
   overflow: hidden;
 }
+
 
 /* Paper texture overlay */
 .scrapbook-card::before {
