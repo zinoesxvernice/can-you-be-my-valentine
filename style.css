@@ -22,12 +22,30 @@ body {
   position: relative;
   background: #fff0f6;
   padding: 50px 40px;
-  border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(255, 47, 146, 0.25);
-  transform: scale(0.8) rotate(-4deg);
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(255, 47, 146, 0.3);
   opacity: 0;
-  animation: cardIn 1s ease-out forwards;
+  animation: crumpleIn 1.3s ease-out forwards;
+  transform-origin: center;
+  overflow: hidden;
 }
+
+.scrapbook-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.15),
+      rgba(255,255,255,0.15) 2px,
+      transparent 2px,
+      transparent 6px
+    );
+  opacity: 0.3;
+  pointer-events: none;
+}
+
 
 /* Washi tape */
 .tape {
@@ -73,17 +91,27 @@ body {
 }
 
 /* Animation */
-@keyframes cardIn {
+@keyframes crumpleIn {
   0% {
     opacity: 0;
-    transform: scale(0.6) rotate(-8deg);
+    transform: scale(0.4) rotate(-12deg) skew(12deg, -8deg);
+    filter: blur(2px);
+    box-shadow: none;
   }
-  70% {
+
+  40% {
     opacity: 1;
-    transform: scale(1.05) rotate(2deg);
+    transform: scale(0.9) rotate(6deg) skew(-6deg, 4deg);
   }
+
+  70% {
+    transform: scale(1.05) rotate(-2deg) skew(2deg, -1deg);
+  }
+
   100% {
     opacity: 1;
-    transform: scale(1) rotate(0deg);
+    transform: scale(1) rotate(0deg) skew(0deg, 0deg);
+    filter: blur(0);
   }
 }
+
